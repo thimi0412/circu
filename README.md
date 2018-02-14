@@ -1,4 +1,4 @@
-# circ
+# circu
 元号から西暦に変換するプログラム
 python3 JaCal_to_AD.py で実行
 
