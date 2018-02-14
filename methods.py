@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import re
-import mojimoji
 
 '''
 経歴を全てA.D.に変換したlistを返すメソッド
