@@ -23,9 +23,7 @@ box2 = methods.conv_AD(box)
 #月を削除
 box2 = methods.del_month(box2)
 
-#経歴以外を除外
-# box2 = methods.remove_other_career(box2)
-#
+#退職が含まれる行を削除
 box2 = methods.remove_other_retirement(box2)
 
 for i in box2:
