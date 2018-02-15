@@ -15,8 +15,6 @@ def conv_AD(box):
             #マッチングパターンの設定
             if row.find('年') != -1:
                 heisei = re.compile('(平成(.|..)年)')
-            else:#年がない場合も考慮
-                heisei = re.compile('(平成(.|..)) ')
             match = heisei.findall(row)
 
             #変換
@@ -26,13 +24,38 @@ def conv_AD(box):
             #格納
             box2.append(row)
 
+        elif row.find('H') != -1:
+            #マッチングパターンの設定
+            if row.find('年') != -1:
+                H = re.compile('(H(.|..)年)')
+            match = H.findall(row)
+
+            #変換
+            for i in match:
+                AD = str(2000 + int(i[1]) - 12) + '年'
+                row = row.replace(i[0],AD)
+            #格納
+            box2.append(row)
+
+
         elif row.find('昭和') != -1:
             #マッチングパターンの設定
             if row.find('年') != -1:
                 showa = re.compile('(昭和(.|..)年)')
-            else:#年がない場合も考慮
-                showa = re.compile('(昭和(.|..)) ')
             match = showa.findall(row)
+
+            #変換
+            for i in match:
+                AD = str(1900 + int(i[1]) + 25) + '年'
+                row = row.replace(i[0],AD)
+            #格納
+            box2.append(row)
+
+        elif row.find('S') != -1:
+            #マッチングパターンの設定
+            if row.find('年') != -1:
+                H = re.compile('(S(.|..)年)')
+            match = H.findall(row)
 
             #変換
             for i in match:
